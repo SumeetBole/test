@@ -10,7 +10,7 @@ import {
 
 const stats = [
   {
-    number: "2+",
+    number: "1+",
     label: "Years Experience",
     icon: Briefcase,
   },

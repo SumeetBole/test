@@ -147,7 +147,7 @@ export default function HeroImage() {
           </p>
 
           <h2 className="text-center text-2xl font-bold">
-            2+ Years
+            1+ Years
           </h2>
         </div>
       </motion.div>

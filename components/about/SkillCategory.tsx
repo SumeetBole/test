@@ -59,7 +59,7 @@ const categories = [
 
 export default function SkillCategory() {
   return (
-    <section className="relative py-12">
+    <section className="relative py-4">
       {/* Heading */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}

@@ -5,17 +5,16 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 
 const links = [
-  { name: "Home", href: "#home" },
+  { name: "Home", href: "/" },
   { name: "About", href: "#about" },
   { name: "Experience", href: "#experience" },
   { name: "Skills", href: "#skills" },
   { name: "Projects", href: "#projects" },
-  { name: "Services", href: "#services" },
   { name: "Contact", href: "#contact" },
 ];
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(false);  
   const [mobile, setMobile] = useState(false);
 
   useEffect(() => {
@@ -45,7 +44,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <motion.a
-            href="#home"
+            href="/"
             whileHover={{ scale: 1.05 }}
             className="flex items-center gap-3"
           >

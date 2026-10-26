@@ -41,7 +41,7 @@ export default function AboutBackground() {
           duration: 8,
           repeat: Infinity,
         }}
-        className="absolute -left-40 top-10 h-[420px] w-[420px] rounded-full bg-cyan-500 blur-[140px]"
+        className="absolute -left-40 top-10 h-[420px] w-[420px] rounded-full bg-grey-900 blur-[140px]"
       />
 
       {/* Bottom Right Glow */}
@@ -70,7 +70,7 @@ export default function AboutBackground() {
       />
 
       {/* Spotlight */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.12),transparent_55%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(19, 126, 143, 0.12),transparent_55%)]" />
 
       {/* Noise Texture */}
       <div

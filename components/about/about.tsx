@@ -74,10 +74,6 @@ export default function About() {
           <JourneyTimeline />
         </div>
 
-        {/* Skills */}
-        <div className="mt-32">
-          <SkillCategory />
-        </div>
       </div>
     </section>
   );
