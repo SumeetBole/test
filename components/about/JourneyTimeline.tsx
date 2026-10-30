@@ -47,7 +47,7 @@ export default function JourneyTimeline() {
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="mb-20 text-center"
+        className="mb-20 text-left"
       >
         <span className="rounded-full border border-cyan-500/20 bg-cyan-500/10 px-5 py-2 text-sm text-cyan-300 backdrop-blur-xl">
           My Journey

@@ -1,6 +1,7 @@
+
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 import {
   RiReactjsLine,
@@ -25,96 +26,200 @@ const categories = [
   {
     title: "Frontend",
     items: [
-      { icon: <RiReactjsLine size={28} className="text-sky-400" />, name: "React" },
-      { icon: <RiNextjsFill size={28} className="text-white" />, name: "Next.js" },
-      { icon: <RiTailwindCssFill size={28} className="text-cyan-400" />, name: "Tailwind CSS" },
-      { icon: <SiTypescript size={28} className="text-blue-500" />, name: "TypeScript" },
+      { icon: <RiReactjsLine className="text-sky-400" />, name: "React" },
+      { icon: <RiNextjsFill className="text-white" />, name: "Next.js" },
+      {
+        icon: <RiTailwindCssFill className="text-cyan-400" />,
+        name: "Tailwind CSS",
+      },
+      {
+        icon: <SiTypescript className="text-blue-500" />,
+        name: "TypeScript",
+      },
     ],
   },
   {
     title: "Backend",
     items: [
-      { icon: <SiPython size={28} className="text-yellow-400" />, name: "Python" },
-      { icon: <SiDjango size={28} className="text-green-500" />, name: "Django" },
-      { icon: <MonitorSmartphone size={28} className="text-cyan-300" />, name: "REST APIs" },
+      { icon: <SiPython className="text-yellow-400" />, name: "Python" },
+      { icon: <SiDjango className="text-green-500" />, name: "Django" },
+      {
+        icon: <MonitorSmartphone className="text-cyan-300" />,
+        name: "REST APIs",
+      },
     ],
   },
   {
     title: "Tools",
     items: [
-      { icon: <SiGit size={28} className="text-orange-500" />, name: "Git" },
-      { icon: <RiGithubFill size={28} className="text-white" />, name: "GitHub" },
-      { icon: <SiFigma size={28} className="text-pink-500" />, name: "Figma" },
+      { icon: <SiGit className="text-orange-500" />, name: "Git" },
+      { icon: <RiGithubFill className="text-white" />, name: "GitHub" },
+      { icon: <SiFigma className="text-pink-500" />, name: "Figma" },
     ],
   },
   {
     title: "UI & Motion",
     items: [
-      { icon: <SiFramer size={28} className="text-white" />, name: "Framer Motion" },
-      { icon: <SiShadcnui size={28} className="text-white" />, name: "shadcn/ui" },
-      { icon: <RiTailwindCssFill size={28} className="text-cyan-400" />, name: "Magic UI" },
+      { icon: <SiFramer className="text-white" />, name: "Framer Motion" },
+      { icon: <SiShadcnui className="text-white" />, name: "shadcn/ui" },
+      {
+        icon: <RiTailwindCssFill className="text-cyan-400" />,
+        name: "Magic UI",
+      },
     ],
   },
 ];
 
 export default function SkillCategory() {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
-    <section className="relative py-4">
+    <section
+      id="skills"
+      className="relative w-full min-w-0 py-8 sm:py-10 lg:py-12"
+    >
       {/* Heading */}
       <motion.div
-        initial={{ opacity: 0, y: 40 }}
+        initial={
+          shouldReduceMotion ? false : { opacity: 0, y: 30 }
+        }
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="mb-20 text-center"
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="mx-auto mb-12 max-w-3xl px-1 text-center sm:mb-16 lg:mb-20"
       >
-        <span className="rounded-full border border-cyan-500/20 bg-cyan-500/10 px-5 py-2 text-sm text-cyan-300 backdrop-blur-xl">
+        <span
+          className="inline-flex rounded-full border
+          border-cyan-500/20 bg-cyan-500/10
+          px-4 py-2 text-xs font-medium
+          text-cyan-300 backdrop-blur-xl
+          sm:px-5 sm:text-sm"
+        >
           Tech Arsenal
         </span>
 
-        <h2 className="mt-6 text-4xl font-black uppercase text-white md:text-6xl">
+        <h2
+          className="mt-5 text-3xl font-black uppercase
+          leading-tight tracking-tight text-white
+          sm:mt-6 sm:text-4xl
+          md:text-5xl
+          lg:text-6xl"
+        >
           Technologies
-          <span className="block bg-gradient-to-r from-cyan-400 via-blue-400 to-sky-500 bg-clip-text text-transparent">
+
+          <span
+            className="block bg-gradient-to-r
+            from-cyan-400 via-blue-400 to-sky-500
+            bg-clip-text text-transparent"
+          >
             I Work With
           </span>
         </h2>
 
-        <p className="mx-auto mt-6 max-w-2xl leading-8 text-zinc-400">
-          I enjoy building modern web applications using technologies focused on
-          performance, accessibility and beautiful user experiences.
+        <p
+          className="mx-auto mt-4 max-w-2xl
+          text-sm leading-7 text-zinc-400
+          sm:mt-6 sm:text-base sm:leading-8"
+        >
+          I enjoy building modern web applications using
+          technologies focused on performance, accessibility,
+          and beautiful user experiences.
         </p>
       </motion.div>
 
-      {/* Grid */}
-      <div className="grid gap-8 md:grid-cols-2">
+      {/* Responsive Category Grid */}
+      <div
+        className="grid grid-cols-1 gap-5
+        sm:gap-6
+        md:grid-cols-2 md:gap-6
+        xl:grid-cols-2 xl:gap-8
+        2xl:grid-cols-2"
+      >
         {categories.map((category, index) => (
           <motion.div
             key={category.title}
-            initial={{ opacity: 0, y: 50 }}
+            initial={
+              shouldReduceMotion ? false : { opacity: 0, y: 30 }
+            }
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.15 }}
-            whileHover={{ y: -8 }}
-            className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl transition-all duration-300 hover:border-cyan-500/40"
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{
+              duration: 0.5,
+              delay: shouldReduceMotion ? 0 : index * 0.1,
+            }}
+            whileHover={shouldReduceMotion ? undefined : { y: -4 }}
+            className="group relative min-w-0 overflow-hidden
+              rounded-2xl border border-white/10
+              bg-white/[0.04] p-4
+              transition-colors duration-300
+              hover:border-cyan-500/40
+              sm:rounded-3xl sm:p-5
+              lg:p-7
+              xl:p-8"
           >
-            {/* Glow */}
-            <div className="absolute -right-20 -top-20 h-56 w-56 rounded-full bg-cyan-500/10 opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100" />
+            {/* Cyan Glow */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute
+              -right-16 -top-16 h-40 w-40
+              rounded-full bg-cyan-500/10
+              opacity-0 blur-3xl
+              transition-opacity duration-500
+              group-hover:opacity-100
+              sm:h-48 sm:w-48
+              lg:h-56 lg:w-56"
+            />
 
-            <h3 className="relative mb-8 text-2xl font-bold text-white">
+            {/* Category Title */}
+            <h3
+              className="relative mb-5 text-xl
+              font-bold text-white
+              sm:mb-6 sm:text-2xl
+              lg:mb-8"
+            >
               {category.title}
             </h3>
 
-            <div className="relative grid grid-cols-2 gap-4">
+            {/* Skills */}
+            <div
+              className="relative grid grid-cols-2
+              gap-2.5 sm:gap-3
+              lg:gap-4"
+            >
               {category.items.map((skill) => (
                 <motion.div
                   key={skill.name}
-                  whileHover={{
-                    scale: 1.05,
-                  }}
-                  className="flex items-center gap-4 rounded-2xl border border-white/10 bg-black/20 p-4 transition hover:border-cyan-500/40"
+                  whileHover={
+                    shouldReduceMotion ? undefined : { scale: 1.03 }
+                  }
+                  className="flex min-w-0 min-h-[58px]
+                    items-center gap-2
+                    rounded-xl border border-white/10
+                    bg-black/30 p-2.5
+                    transition-colors duration-300
+                    hover:border-cyan-500/40
+                    sm:min-h-[66px] sm:gap-3 sm:p-3
+                    lg:rounded-2xl lg:p-4"
                 >
-                  <div>{skill.icon}</div>
+                  {/* Responsive Icon */}
+                  <div
+                    className="flex shrink-0 items-center
+                    justify-center text-xl
+                    sm:text-2xl lg:text-[28px]"
+                  >
+                    <span className="flex [&>svg]:h-5 [&>svg]:w-5 sm:[&>svg]:h-6 sm:[&>svg]:w-6 lg:[&>svg]:h-7 lg:[&>svg]:w-7">
+                      {skill.icon}
+                    </span>
+                  </div>
 
-                  <span className="text-sm font-medium text-white">
+                  {/* Skill Name */}
+                  <span
+                    className="min-w-0 break-words
+                    text-xs font-medium leading-5
+                    text-zinc-200
+                    sm:text-sm
+                    lg:text-sm"
+                  >
                     {skill.name}
                   </span>
                 </motion.div>

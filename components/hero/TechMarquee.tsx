@@ -1,6 +1,8 @@
+
 "use client";
 
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
+
 import {
   FaReact,
   FaPython,
@@ -69,43 +71,62 @@ const technologies = [
 const marqueeItems = [...technologies, ...technologies];
 
 export default function TechMarquee() {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
-    <div className="relative overflow-hidden py-6">
+    <div className="relative w-full overflow-hidden py-2 sm:py-4 md:py-5 lg:py-6">
+
+      {/* Background Gradient */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+
       {/* Left Fade */}
-      <div className="absolute left-0 top-0 z-10 h-full w-24 bg-gradient-to-r from-[#050505] to-transparent" />
+      <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-8 bg-gradient-to-r from-[#050505] to-transparent sm:w-12 md:w-20 lg:w-24" />
 
       {/* Right Fade */}
-      <div className="absolute right-0 top-0 z-10 h-full w-24 bg-gradient-to-l from-[#050505] to-transparent" />
+      <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-8 bg-gradient-to-l from-[#050505] to-transparent sm:w-12 md:w-20 lg:w-24" />
 
+      {/* Scrolling Container */}
       <motion.div
-        animate={{
-          x: ["0%", "-50%"],
-        }}
+        animate={
+          shouldReduceMotion
+            ? {}
+            : { x: ["0%", "-50%"] }
+        }
         transition={{
-          duration: 25,
+          duration: 30,
           ease: "linear",
           repeat: Infinity,
         }}
-        className="flex w-max gap-6"
+        className="flex w-max items-center gap-3 sm:gap-4 md:gap-5 lg:gap-6"
       >
+
         {marqueeItems.map((tech, index) => (
           <motion.div
             key={`${tech.name}-${index}`}
-            whileHover={{
-              y: -6,
-              scale: 1.05,
-            }}
-            className="group flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-6 py-3 backdrop-blur-xl transition-all duration-300 hover:border-cyan-400/40 hover:bg-cyan-500/10"
+            whileHover={
+              shouldReduceMotion
+                ? {}
+                : {
+                    y: -5,
+                    scale: 1.05,
+                  }
+            }
+            className="group flex shrink-0 items-center gap-3 rounded-full border border-white/10 bg-white/5 px-5 py-3 shadow-lg backdrop-blur-xl transition-colors duration-300 hover:border-cyan-400/40 hover:bg-cyan-500/10 sm:gap-4 sm:px-6 sm:py-4 md:gap-3 md:px-5 md:py-3 lg:px-6"
           >
-            <span className="text-2xl transition-transform duration-300 group-hover:rotate-12">
+
+            {/* Technology Icon */}
+            <span className="flex shrink-0 items-center justify-center text-lg transition-transform duration-300 group-hover:rotate-12 sm:text-xl md:text-2xl">
               {tech.icon}
             </span>
 
-            <span className="whitespace-nowrap text-sm font-medium text-white">
+            {/* Technology Name */}
+            <span className="whitespace-nowrap text-[11px] font-medium text-white sm:text-xs md:text-sm">
               {tech.name}
             </span>
+
           </motion.div>
         ))}
+
       </motion.div>
     </div>
   );
