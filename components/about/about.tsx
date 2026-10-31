@@ -23,21 +23,6 @@ export default function About() {
         className="relative z-20 mx-auto w-full max-w-7xl
         px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12"
       >
-        {/* Section Label */}
-        <motion.div
-          initial={
-            shouldReduceMotion ? false : { opacity: 0, y: 20 }
-          }
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="mb-8 inline-flex items-center rounded-full
-          border border-cyan-500/20 bg-cyan-500/10
-          px-4 py-2 text-xs font-medium tracking-wide
-          text-cyan-300 sm:mb-10 sm:px-5 sm:text-sm"
-        >
-          About Me
-        </motion.div>
 
         {/* Hero Layout */}
         <div
@@ -46,6 +31,7 @@ export default function About() {
           lg:grid-cols-2 lg:gap-10
           xl:gap-16 2xl:gap-20"
         >
+
           {/* LEFT: Introduction */}
           <motion.div
             initial={
@@ -56,6 +42,23 @@ export default function About() {
             transition={{ duration: 0.75, ease: "easeOut" }}
             className="min-w-0 w-full"
           >
+
+            {/* Section Label */}
+            <motion.div
+              initial={
+                shouldReduceMotion ? false : { opacity: 0, y: 20 }
+              }
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="mb-5 inline-flex items-center rounded-full
+              border border-cyan-500/20 bg-cyan-500/10
+              px-4 py-2 text-xs font-medium tracking-wide
+              text-cyan-300 sm:mb-5 sm:px-5 sm:text-sm"
+            >
+              About Me
+            </motion.div>
+
             {/* Heading */}
             <h2
               className="text-4xl font-black uppercase
@@ -64,7 +67,7 @@ export default function About() {
               md:text-6xl
               lg:text-5xl
               xl:text-6xl
-              2xl:text-7xl"
+              2xl:text-6xl"
             >
               <span className="block text-white">
                 BUILDING
@@ -102,19 +105,21 @@ export default function About() {
                 web applications.
               </p>
 
-              <p className="mt-4 text-justify" >
+              <p className="mt-4 text-justify">
                 I enjoy transforming ideas into intuitive
                 interfaces using React, Next.js, and modern
                 frontend technologies while continuously
                 learning and improving every day.
               </p>
             </div>
+
           </motion.div>
 
           {/* RIGHT: Image */}
           <div className="min-w-0 w-full">
             <AboutImage />
           </div>
+
         </div>
 
         {/* Journey Timeline */}
@@ -129,6 +134,7 @@ export default function About() {
         >
           <JourneyTimeline />
         </motion.div>
+
       </div>
     </section>
   );

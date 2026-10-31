@@ -52,15 +52,15 @@ export default function Hero() {
             {/* Heading */}
             <div className="w-full leading-[0.95]">
 
-              <h1 className="text-[clamp(2.8rem,9vw,5rem)] font-black uppercase tracking-tight text-white sm:text-6xl md:text-7xl lg:text-6xl xl:text-7xl 2xl:text-8xl">
+              <h1 className="text-[clamp(2.8rem,9vw,5rem)] font-black uppercase tracking-tight text-white sm:text-6xl md:text-7xl lg:text-6xl xl:text-7xl 2xl:text-6xl">
                 SUMEET
               </h1>
 
-              <h2 className="mt-2 bg-gradient-to-r from-blue-500 via-cyan-300 to-sky-500 bg-clip-text text-[clamp(2.1rem,7.5vw,4.5rem)] font-black uppercase tracking-tight text-transparent sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl 2xl:text-7xl">
+              <h2 className="mt-2 bg-gradient-to-r from-blue-500 via-cyan-300 to-sky-500 bg-clip-text text-[clamp(2.1rem,7.5vw,4.5rem)] font-black uppercase tracking-tight text-transparent sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl 2xl:text-6xl">
                 FRONTEND
               </h2>
 
-              <h2 className="mt-1 text-[clamp(2.1rem,7.5vw,4.5rem)] font-black uppercase tracking-tight text-white sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl 2xl:text-7xl">
+              <h2 className="mt-1 text-[clamp(2.1rem,7.5vw,4.5rem)] font-black uppercase tracking-tight text-white sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl 2xl:text-6xl">
                 DEVELOPER
               </h2>
 

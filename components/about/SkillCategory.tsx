@@ -76,9 +76,10 @@ export default function SkillCategory() {
   return (
     <section
       id="skills"
-      className="relative w-full min-w-0 py-8 sm:py-10 lg:py-12"
+      className="relative w-full min-w-0 py-0 sm:py-1 lg:py-1"
     >
-      {/* Heading */}
+      {/* ================= CUSTOMIZED HEADING ================= */}
+
       <motion.div
         initial={
           shouldReduceMotion ? false : { opacity: 0, y: 30 }
@@ -86,48 +87,54 @@ export default function SkillCategory() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="mx-auto mb-12 max-w-3xl px-1 text-center sm:mb-16 lg:mb-20"
+        className="mx-auto mb-12 px-1 text-left sm:mb-16 lg:mb-20"
       >
-        <span
-          className="inline-flex rounded-full border
-          border-cyan-500/20 bg-cyan-500/10
-          px-4 py-2 text-xs font-medium
-          text-cyan-300 backdrop-blur-xl
-          sm:px-5 sm:text-sm"
-        >
-          Tech Arsenal
-        </span>
+        {/* Section Label */}
+        <div className="mb-6 flex items-center gap-4">
+          <span className="h-[2px] w-12 bg-cyan-400" />
 
+          <span
+            className="text-xs uppercase
+            tracking-[0.3em] text-cyan-400
+            sm:text-sm sm:tracking-[0.4em]"
+          >
+            Expertise
+          </span>
+        </div>
+
+        {/* Main Heading */}
         <h2
-          className="mt-5 text-3xl font-black uppercase
-          leading-tight tracking-tight text-white
-          sm:mt-6 sm:text-4xl
-          md:text-5xl
-          lg:text-6xl"
+          className="text-4xl font-semibold leading-[1.1] tracking-tight
+          text-white
+          sm:text-5xl
+          md:text-6xl
+          lg:text-7xl"
         >
-          Technologies
+          Technologies that
 
           <span
             className="block bg-gradient-to-r
-            from-cyan-400 via-blue-400 to-sky-500
+            from-cyan-400 via-sky-400 to-blue-500
             bg-clip-text text-transparent"
           >
-            I Work With
+            power my skills.
           </span>
         </h2>
 
+        {/* Description */}
         <p
-          className="mx-auto mt-4 max-w-2xl
+          className="mt-6 max-w-3xl
           text-sm leading-7 text-zinc-400
-          sm:mt-6 sm:text-base sm:leading-8"
+          sm:mt-8 sm:text-base sm:leading-8"
         >
-          I enjoy building modern web applications using
-          technologies focused on performance, accessibility,
-          and beautiful user experiences.
+          A collection of technologies and tools I use to
+          build modern web applications, develop functional
+          solutions, and create engaging digital experiences.
         </p>
       </motion.div>
 
-      {/* Responsive Category Grid */}
+      {/* ================= ORIGINAL SKILL CARDS ================= */}
+
       <div
         className="grid grid-cols-1 gap-5
         sm:gap-6
@@ -207,7 +214,12 @@ export default function SkillCategory() {
                     justify-center text-xl
                     sm:text-2xl lg:text-[28px]"
                   >
-                    <span className="flex [&>svg]:h-5 [&>svg]:w-5 sm:[&>svg]:h-6 sm:[&>svg]:w-6 lg:[&>svg]:h-7 lg:[&>svg]:w-7">
+                    <span
+                      className="flex
+                      [&>svg]:h-5 [&>svg]:w-5
+                      sm:[&>svg]:h-6 sm:[&>svg]:w-6
+                      lg:[&>svg]:h-7 lg:[&>svg]:w-7"
+                    >
                       {skill.icon}
                     </span>
                   </div>

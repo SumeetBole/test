@@ -42,12 +42,13 @@ const journey = [
 export default function JourneyTimeline() {
   return (
     <section className="relative py-10">
+      
       {/* Heading */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="mb-20 text-left"
+        className="mb-16 text-left sm:mb-20 lg:mb-24  "
       >
         <span className="rounded-full border border-cyan-500/20 bg-cyan-500/10 px-5 py-2 text-sm text-cyan-300 backdrop-blur-xl">
           My Journey
@@ -60,7 +61,7 @@ export default function JourneyTimeline() {
           </span>
         </h2>
 
-        <p className="mx-auto mt-6 max-w-2xl text-zinc-400 leading-8">
+        <p className="mt-6 max-w-3xl text-sm leading-7 text-zinc-400 sm:mt-8 sm:text-base sm:leading-8">
           Every project, role and learning experience has contributed to my
           journey as a frontend developer. I'm continuously improving,
           experimenting and building better digital experiences.
